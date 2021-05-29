@@ -19,59 +19,60 @@
     </div>
 
     <div class="container" style="margin-top: 1%">
-        <form class="needs-validation" action="" method="POST">
+        <hr>
+        <form class="needs-validation" action="/oldForm/" method="POST">
             {% csrf_token %}
-            {{form.as_p}}
+            <!-- Basic details -->
             <fieldset>
-                <legend>Basic Details:</legend>
-
+                <legend class="h4">Basic Details:</legend>
+                <br>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">First Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter First Name" name='fname'>
+                        <input type="text" class="form-control" placeholder="First Name" name='fname'>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Last Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Last Name" name='lname'>
+                        <input type="text" class="form-control" placeholder="Last Name" name='lname'>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Designation</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Designation" name='designation'>
+                        <input type="text" class="form-control" placeholder="Designation" name='designation'>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-10">
-                        <textarea class="col-sm-10" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Address" name='address'></textarea>
+                        <textarea class="col-sm-10" id="exampleFormControlTextarea1" rows="3" placeholder="Address" name='address'></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">E-mail ID</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter e-mail" name='mail'>
+                        <input type="text" class="form-control" placeholder="abc@xyz.com" name='mail'>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">City</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter city" name='city'>
+                        <input type="text" class="form-control" placeholder="City" name='city'>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Phone</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter phone number" name='phone'>
+                        <input type="text" class="form-control" placeholder="Phone number" name='phone'>
                     </div>
                 </div>
 
                 <!-- Gender -->
                 <div class="row">
                     <span class="col-sm-2">Gender</span>
-                    <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline" style="margin-left: 2%;">
                         <input type="radio" id="Male" name="gender" class="custom-control-input" value='male'>
                         <label class="custom-control-label" for="Male">Male</label>
                     </div>
@@ -84,10 +85,11 @@
                         <label class="custom-control-label" for="Others">Others</label>
                     </div>
                 </div>
+                <br>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Zip Code</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter zip code" name='zip'>
+                        <input type="text" class="form-control" placeholder="zip code" name='zip'>
                     </div>
                 </div>
 
@@ -95,7 +97,7 @@
                     <label class="col-sm-2 col-form-label">Relationship Status</label>
                     <div class="col-sm-10">
                         <select class="custom-select custom-select mb-3" name="relation_status">
-                            <option selected>Select marital status</option>
+                            <option value="hm">Select marital status</option>
                             <option value="single">single</option>
                             <option value="married">married</option>
                             <option value="private">prefer not to say</option>
@@ -109,10 +111,400 @@
                         <input type="date" class="form-control" name='dob'>
                     </div>
                 </div>
+            </fieldset>
+            <hr>
+            <!-- education details -->
+            <fieldset>
+                <legend class="h4">Education Detail: </legend>
+                <br>
+                <p class="h5"> SSC Result</p>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label"></label>
+                    <label class="col-sm-2 col-form-label">Name of board</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" placeholder="board name" name='ssc_board_name'>
+                    </div>
+                    <label class="col-sm-2 col-form-label">Passing Year</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" placeholder="passing year" name='ssc_year'>
+                    </div>
+                    <label class="col-sm-2 col-form-label">Percentage</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" placeholder="score" name='ssc_score'>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="h5">HSC/Diploma Result</p>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Name of board</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" placeholder="board name" name='hsc_dip_board_name'>
+                    </div>
+                    <label class="col-sm-2 col-form-label">Passing Year</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" placeholder="passing year" name='hsc_dip_year'>
+                    </div>
+                    <label class="col-sm-2 col-form-label">Percentage</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" placeholder="score" name='hsc_dip_score'>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="h5">Bachelor Degree</p>
+                <div class="form-group row">
+                    <label class="col-sm col-form-label">Course Name</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="Course name" name='bachelor_course_name'>
+                    </div>
+                    <label class="col-sm col-form-label">University</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="university name" name='bachelor_uni_name'>
+                    </div>
+                    <label class="col-sm col-form-label">Passing Year</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="passing year" name='bachelor_year'>
+                    </div>
+                    <label class="col-sm col-form-label">Percentage</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="score" name='bachelor_score'>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="h5">Master Degree</p>
+                <div class="form-group row">
+                    <label class="col-sm col-form-label">Course Name</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="board name" name='master_course_name'>
+                    </div>
+                    <label class="col-sm col-form-label">University</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="university name" name='master_uni_name'>
+                    </div>
+                    <label class="col-sm col-form-label">Passing Year</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="passing year" name='master_year'>
+                    </div>
+                    <label class="col-sm col-form-label">Percentage</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="score" name='master_score'>
+                    </div>
+                </div>
+                <hr>
+            </fieldset>
+            <!-- work exp -->
+            <fieldset>
+                <legend class="h4">Work Experience</legend>
+                <br>
+                <!-- company 1 -->
+                <div class="form-group row">
+                    <label class="col-sm col-form-label">Company Name</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="board name" name='workexp_company1_name'>
+                    </div>
+                    <label class="col-sm col-form-label">Designation</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="designation" name='workexp_company1_designation'>
+                    </div>
+                    <label class="col-sm col-form-label">From</label>
+                    <div class="col-sm">
+                        <input type="date" class="form-control" name='workexp_company1_start_date'>
+                    </div>
+                    <label class="col-sm col-form-label">End Date</label>
+                    <div class="col-sm">
+                        <input type="date" class="form-control" name='workexp_company1_end_date'>
+                    </div>
+                </div>
+                <!-- Company 2 -->
+                <div class="form-group row">
+                    <label class="col-sm col-form-label">Company Name</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="board name" name='workexp_company2_name'>
+                    </div>
+                    <label class="col-sm col-form-label">Designation</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="designation" name='workexp_company2_designation'>
+                    </div>
+                    <label class="col-sm col-form-label">From</label>
+                    <div class="col-sm">
+                        <input type="date" class="form-control" name='workexp_company2_start_date'>
+                    </div>
+                    <label class="col-sm col-form-label">End Date</label>
+                    <div class="col-sm">
+                        <input type="date" class="form-control" name='workexp_company2_end_date'>
+                    </div>
+                </div>
+                <!-- company 3 -->
+                <div class="form-group row">
+                    <label class="col-sm col-form-label">Company Name</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="board name" name='workexp_company3_name'>
+                    </div>
+                    <label class="col-sm col-form-label">Designation</label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" placeholder="designation" name='workexp_company3_designation'>
+                    </div>
+                    <label class="col-sm col-form-label">From</label>
+                    <div class="col-sm">
+                        <input type="date" class="form-control" name='workexp_company3_start_date'>
+                    </div>
+                    <label class="col-sm col-form-label">End Date</label>
+                    <div class="col-sm">
+                        <input type="date" class="form-control" name='workexp_company3_end_date'>
+                    </div>
+                </div>
+
+            </fieldset>
+            <hr>
+
+            <!-- Language Known -->
+            <fieldset>
+                <legend class="h4">Language Known:</legend>
+                <!-- Hindi -->
+                <div class="form-group row" style="padding-left: 3%;">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckboxl1" name="Language1" value="Hindi">
+                        <label class="form-check-label" for="inlineCheckboxl1">Hindi </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="Language1_read" value="read">
+                        <label class="form-check-label" for="inlineCheckbox2">Read</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="Language1_write" value="write">
+                        <label class="form-check-label" for="inlineCheckbox3">Write</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="Language1_speak" value="speak">
+                        <label class="form-check-label" for="inlineCheckbox4">Speak</label>
+                    </div>
+                </div>
+
+                <!-- English -->
+                <div class="form-group row" style="padding-left: 3%;">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="Language2" value="English">
+                        <label class="form-check-label" for="inlineCheckbox5">English</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox6" name="Language2_read" value="Read">
+                        <label class="form-check-label" for="inlineCheckbox6">Read</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox7" name="Language2_write" value="Write">
+                        <label class="form-check-label" for="inlineCheckbox7">Write</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox8" name="Language2_speak" value="Speak">
+                        <label class="form-check-label" for="inlineCheckbox8">Speak</label>
+                    </div>
+                </div>
+
+                <!-- Gujarati -->
+                <div class="form-group row" style="padding-left: 3%;">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckboxl9" name="Language3" value="Gujarati">
+                        <label class="form-check-label" for="inlineCheckboxl9">Gujarati</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox10" name="Language3_Read" value="Read">
+                        <label class="form-check-label" for="inlineCheckbox10">Read</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox11" name="Language3_Write" value="Write">
+                        <label class="form-check-label" for="inlineCheckbox11">Write</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox12" name="Language3_Speak" value="Speak">
+                        <label class="form-check-label" for="inlineCheckbox12">Speak</label>
+                    </div>
+                </div>
+            </fieldset>
+            <hr>
+            <!-- Technologies youo know -->
+            <fieldset>
+                <legend class="h4">Technologies you know:</legend>
+                <!-- PHP -->
+                <div class="form-group row">
+
+                    <div class="form-check form-check-inline" style="padding-left: 3%;">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="PHP" value="true">
+                        <label class="form-check-label" for="inlineCheckbox1">PHP</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="beginnerPHP" id="inlineRadio2" value="true">
+                        <label class="form-check-label" for="inlineRadio2">Beginner</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="MideatorPHP" id="inlineRadio3" value="true">
+                        <label class="form-check-label" for="inlineRadio3">Mideator</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="ExpertPHP" id="inlineRadio4" value="true">
+                        <label class="form-check-label" for="inlineRadio4">Expert</label>
+                    </div>
+                </div>
+
+                <!-- Mysql -->
+                <div class="form-group row" style="padding-left: 3%;">
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckboxl5" name="MYSQL" value="true">
+                        <label class="form-check-label" for="inlineCheckboxl5">Mysql</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="BeginnerMYSQL" id="inlineRadio6" value="true">
+                        <label class="form-check-label" for="inlineRadio6">Beginner</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="MideatorMYSQL" id="inlineRadio7" value="true">
+                        <label class="form-check-label" for="inlineRadio7">Mideator</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="ExpertMYSQL" id="inlineRadio8" value="true">
+                        <label class="form-check-label" for="inlineRadio8">Expert</label>
+                    </div>
+                </div>
+
+                <!-- Laravel -->
+                <div class="form-group row" style="padding-left: 3%;">
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox9" name="Laravel" value="true">
+                        <label class="form-check-label" for="inlineCheckbox9">Laravel</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="BeginnerLaravel" id="inlineRadio10" value="true">
+                        <label class="form-check-label" for="inlineRadio10">Beginner</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="MideatorLaravel" id="inlineRadio11" value="true">
+                        <label class="form-check-label" for="inlineRadio11">Mideator</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="ExpertLaravel" id="inlineRadio12" value="true">
+                        <label class="form-check-label" for="inlineRadio12">Expert</label>
+                    </div>
+                </div>
+
+                <!-- Oracle -->
+                <div class="form-group row" style="padding-left: 3%;">
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox13" name="Oracle" value="true">
+                        <label class="form-check-label" for="inlineCheckbox13">Oracle</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="BeginnerOracle" id="inlineRadio14" value="true">
+                        <label class="form-check-label" for="inlineRadio14">Beginner</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="MideatorOracle" id="inlineRadio15" value="true">
+                        <label class="form-check-label" for="inlineRadio15">Mideator</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="ExpertOracle" id="inlineRadio16" value="true">
+                        <label class="form-check-label" for="inlineRadio16">Expert</label>
+                    </div>
+                </div>
+            </fieldset>
+            <hr>
+
+            <!-- Referance Contact -->
+            <fieldset>
+                <legend class="h4">Referance Contact</legend>
+                <div class="form-group form-inline">
+
+                    <label class="mb-2 mr-2 ml-2">Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="ref_name1" placeholder="Enter Name">
+
+                    <label class="mb-2 mr-2 ml-2">Contact Number</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="ref_contact1" placeholder="Enter Contact Number">
+
+                    <label class="mb-2 mr-2 ml-2">Relation</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="ref_relation1" placeholder="Enter Relation">
+                </div>
+
+                <div class="form-group form-inline">
+                    <label class="mb-2 mr-2 ml-2">Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="ref_name2" placeholder="Enter Name">
+
+                    <label class="mb-2 mr-2 ml-2">Contact Number</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="ref_contact2" placeholder="Enter Contact Number">
+
+                    <label class="mb-2 mr-2 ml-2">Relation</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="ref_relation2" placeholder="Enter Relation">
+                </div>
+                <br>
+            </fieldset>
+            <hr>
+            <!-- Location Preferances -->
+            <fieldset>
+                <legend class="h4">Preferances</legend>
+                <p class="h5">Prefered location</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="location1" value="value1" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Location 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="location2" value="value2" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">
+                        Location 2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="location3" value="value3" id="defaultCheck3">
+                    <label class="form-check-label" for="defaultCheck3">
+                        Location 3
+                    </label>
+                </div>
+                <br>
+
+                <!-- Notice period -->
+                <label class="col-sm-2 col-form-label">Notice period</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Notice period" name="noticeperiod">
+                </div>
+
+                <!-- Expacted CTC -->
+                <label class="col-sm-2 col-form-label">Expacted CTC</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Expacted CTC" name="expectedCTC">
+                </div>
+
+                <!-- Current CTC -->
+                <label class="col-sm-2 col-form-label">Current CTC</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Current CTC" name="currentCTC">
+                </div>
+                <br>
+
+                <!-- Department -->
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Department</label>
                     <div class="col-sm-10">
-                        <input type="submit" class="form-control btn btn-primary">
+                        <select class="custom-select custom-select mb-3" name="Department">
+                            <option selected>Select Department</option>
+                            <option value="Development">Development</option>
+                            <option value="Digital_Marketing">Digital Marketing</option>
+                            <option value="Application_Development">Application Development</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Submit -->
+                <div class="form-group row">
+                    <label class="col-sm-10 col-form-label"></label>
+                    <div class="col-sm-2">
+                        <input class="btn btn-primary" type="submit" value="Submit">
                     </div>
                 </div>
 

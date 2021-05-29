@@ -4,5 +4,6 @@ from django.shortcuts import render
 
 
 urlpatterns = [
-    path('', views.jobForm),
+    # path('', views.jobForm),
+    path('oldForm/', views.oldForm),
 ]
