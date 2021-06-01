@@ -26,4 +26,3 @@
 #             'date_created': forms.DateTimeInput(attrs={'class': 'form-control'}),
 
 #         }
-

@@ -1,9 +1,12 @@
 from django.urls import path
 from . import views
-from django.shortcuts import render
 
 
 urlpatterns = [
     # path('', views.jobForm),
-    path('oldForm/', views.oldForm),
+    path('jobApplication/', views.oldForm),
+    path('showApplicants/', views.showApplications),
+    path('editApplication/<int:id>', views.editApplication),
+    path('updateApplication/<int:id>', views.updateApplication),
+    path('deleteApplication/<int:id>', views.deleteApplication),
 ]

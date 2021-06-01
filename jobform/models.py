@@ -9,7 +9,7 @@ class JobApplication(models.Model):
     lname = models.CharField(max_length=200, blank=True)
     designation = models.CharField(max_length=200, blank=True)
     address = models.CharField(max_length=200, blank=True)
-    mail = models.EmailField(max_length = 254)
+    mail = models.EmailField(max_length=254)
     city = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=200, blank=True)
     gender = models.CharField(max_length=200, blank=True)
@@ -22,7 +22,7 @@ class JobApplication(models.Model):
     ssc_board_name = models.CharField(max_length=200, blank=True)
     ssc_year = models.CharField(max_length=200, blank=True)
     ssc_score = models.CharField(max_length=200, blank=True)
-    
+
     # HSC / diploma (dip)
     hsc_dip_board_name = models.CharField(max_length=200, blank=True)
     hsc_dip_year = models.CharField(max_length=200, blank=True)
@@ -34,7 +34,7 @@ class JobApplication(models.Model):
     bachelor_year = models.CharField(max_length=200, blank=True)
     bachelor_score = models.CharField(max_length=200, blank=True)
 
-    # masters 
+    # masters
     master_course_name = models.CharField(max_length=200, blank=True)
     master_uni_name = models.CharField(max_length=200, blank=True)
     master_year = models.CharField(max_length=200, blank=True)
@@ -124,7 +124,7 @@ class JobApplication(models.Model):
 
     # department
     Department = models.CharField(max_length=200, blank=True)
-    
     date_submitted = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-            return self.fname + ' ' +self.lname
+
+    class Meta:
+        db_table = "Applications_master"
