@@ -123,8 +123,17 @@ class JobApplication(models.Model):
     currentCTC = models.CharField(max_length=200, blank=True)
 
     # department
-    Department = models.CharField(max_length=200, blank=True)
+    Department = models.CharField(max_length=200, null=True)
     date_submitted = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "Applications_master"
+
+
+class language(models.Model):
+    jobapplicationDetails = models.ForeignKey(JobApplication, on_delete=models.CASCADE)
+    language_choice = [('hindi', 'Hindi'), ('HindiSpeak', 'speak'), ]
+    data = models.JSONField()
+
+    class Meta:
+        db_table = "languages"

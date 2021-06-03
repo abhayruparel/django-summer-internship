@@ -9,35 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>Job Application Form</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #f1f1f1;
-        }
-
-        #regForm {
-            background-color: #ffffff;
-            margin: 100px auto;
-            font-family: Raleway;
-            padding: 40px;
-            width: 70%;
-            min-width: 300px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        input {
-            padding: 10px;
-            width: 100%;
-            font-size: 17px;
-            font-family: Raleway;
-            border: 1px solid #aaaaaa;
-        }
-
         /* Mark input boxes that gets an error on validation: */
         input.invalid {
             background-color: #ffdddd;
@@ -52,9 +23,9 @@
             background-color: #04AA6D;
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
-            font-size: 17px;
-            font-family: Raleway;
+            padding: 0.625em 1.25em;
+
+
             cursor: pointer;
         }
 
@@ -62,14 +33,10 @@
             opacity: 0.8;
         }
 
-        #prevBtn {
-            background-color: #bbbbbb;
-        }
-
         /* Make circles that indicate the steps of the form: */
         .step {
-            height: 15px;
-            width: 15px;
+            height: 0.9375em;
+            width: 0.9375em;
             margin: 0 2px;
             background-color: #bbbbbb;
             border: none;
@@ -98,7 +65,7 @@
 
     <div class="container-fluid">
         <hr>
-        <form class="needs-validation" action="/showApplicants/" method="POST">
+        <form id="regForm" action="/jobApplication/" method="POST">
             {% csrf_token %}
             <!-- Basic details -->
             <div class="tab">
@@ -108,43 +75,43 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">First Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="First Name" name='fname'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="First Name" name='fname'>
                         </div>
                     </div>
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Last Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Last Name" name='lname'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="Last Name" name='lname'>
                         </div>
                     </div>
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Designation</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Designation" name='designation'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="Designation" name='designation'>
                         </div>
                     </div>
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                            <textarea class="col-sm-10" id="exampleFormControlTextarea1" rows="3" placeholder="Address" name='address'></textarea>
+                            <textarea class="col-sm-10" required     id="exampleFormControlTextarea1" rows="3" placeholder="Address" name='address'></textarea>
                         </div>
                     </div>
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">E-mail ID</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="abc@xyz.com" name='mail'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="abc@xyz.com" name='mail'>
                         </div>
                     </div>
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="City" name='city'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="City" name='city'>
                         </div>
                     </div>
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Phone</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Phone number" name='phone'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="Phone number" name='phone'>
                         </div>
                     </div>
 
@@ -168,7 +135,7 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Zip Code</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="zip code" name='zip'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="zip code" name='zip'>
                         </div>
                     </div>
 
@@ -187,7 +154,7 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Date of birth</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name='dob'>
+                            <input type="date" class="form-control" required name='dob'>
                         </div>
                     </div>
                 </fieldset>
@@ -202,15 +169,15 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Name of board</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" placeholder="board name" name='ssc_board_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="board name" name='ssc_board_name'>
                         </div>
                         <label class="col-sm-2 col-form-label">Passing Year</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" placeholder="passing year" name='ssc_year'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="passing year" name='ssc_year'>
                         </div>
                         <label class="col-sm-2 col-form-label">Percentage</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" placeholder="score" name='ssc_score'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="score" name='ssc_score'>
                         </div>
                     </div>
                     <hr>
@@ -219,15 +186,15 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm-2 col-form-label">Name of board</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" placeholder="board name" name='hsc_dip_board_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="board name" name='hsc_dip_board_name'>
                         </div>
                         <label class="col-sm-2 col-form-label">Passing Year</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" placeholder="passing year" name='hsc_dip_year'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="passing year" name='hsc_dip_year'>
                         </div>
                         <label class="col-sm-2 col-form-label">Percentage</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" placeholder="score" name='hsc_dip_score'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="score" name='hsc_dip_score'>
                         </div>
                     </div>
                     <hr>
@@ -236,19 +203,19 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm col-form-label">Course Name</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="Course name" name='bachelor_course_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="Course name" name='bachelor_course_name'>
                         </div>
                         <label class="col-sm col-form-label">University</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="university name" name='bachelor_uni_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="university name" name='bachelor_uni_name'>
                         </div>
                         <label class="col-sm col-form-label">Passing Year</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="passing year" name='bachelor_year'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="passing year" name='bachelor_year'>
                         </div>
                         <label class="col-sm col-form-label">Percentage</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="score" name='bachelor_score'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="score" name='bachelor_score'>
                         </div>
                     </div>
                     <hr>
@@ -257,19 +224,19 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm col-form-label">Course Name</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="board name" name='master_course_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="board name" name='master_course_name'>
                         </div>
                         <label class="col-sm col-form-label">University</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="university name" name='master_uni_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="university name" name='master_uni_name'>
                         </div>
                         <label class="col-sm col-form-label">Passing Year</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="passing year" name='master_year'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="passing year" name='master_year'>
                         </div>
                         <label class="col-sm col-form-label">Percentage</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="score" name='master_score'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="score" name='master_score'>
                         </div>
                     </div>
                     <hr>
@@ -284,11 +251,11 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm col-form-label">Company Name</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="company name" name='workexp_company1_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="company name" name='workexp_company1_name'>
                         </div>
                         <label class="col-sm col-form-label">Designation</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="designation" name='workexp_company1_designation'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="designation" name='workexp_company1_designation'>
                         </div>
                         <label class="col-sm col-form-label">From</label>
                         <div class="col-sm">
@@ -303,11 +270,11 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm col-form-label">Company Name</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="company name" name='workexp_company2_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="company name" name='workexp_company2_name'>
                         </div>
                         <label class="col-sm col-form-label">Designation</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="designation" name='workexp_company2_designation'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="designation" name='workexp_company2_designation'>
                         </div>
                         <label class="col-sm col-form-label">From</label>
                         <div class="col-sm">
@@ -322,11 +289,11 @@
                     <div class="form-group row mb-2 mr-2 ml-2">
                         <label class="col-sm col-form-label">Company Name</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="company name" name='workexp_company3_name'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="company name" name='workexp_company3_name'>
                         </div>
                         <label class="col-sm col-form-label">Designation</label>
                         <div class="col-sm">
-                            <input type="text" class="form-control" placeholder="designation" name='workexp_company3_designation'>
+                            <input type="text" required maxlength="200" class="form-control" placeholder="designation" name='workexp_company3_designation'>
                         </div>
                         <label class="col-sm col-form-label">From</label>
                         <div class="col-sm">
@@ -507,24 +474,24 @@
                     <div class="form-group form-inline">
 
                         <label class="mb-2 mr-2 ml-2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="ref_name1" placeholder="Enter Name">
+                        <input type="text" required maxlength="200" class="form-control mb-2 mr-sm-2" name="ref_name1" placeholder="Enter Name">
 
                         <label class="mb-2 mr-2 ml-2">Contact Number</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="ref_contact1" placeholder="Enter Contact Number">
+                        <input type="text" required maxlength="200" class="form-control mb-2 mr-sm-2" name="ref_contact1" placeholder="Enter Contact Number">
 
                         <label class="mb-2 mr-2 ml-2">Relation</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="ref_relation1" placeholder="Enter Relation">
+                        <input type="text" required maxlength="200" class="form-control mb-2 mr-sm-2" name="ref_relation1" placeholder="Enter Relation">
                     </div>
 
                     <div class="form-group form-inline">
                         <label class="mb-2 mr-2 ml-2">Name</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="ref_name2" placeholder="Enter Name">
+                        <input type="text" required maxlength="200" class="form-control mb-2 mr-sm-2" name="ref_name2" placeholder="Enter Name">
 
                         <label class="mb-2 mr-2 ml-2">Contact Number</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="ref_contact2" placeholder="Enter Contact Number">
+                        <input type="text" required maxlength="200" class="form-control mb-2 mr-sm-2" name="ref_contact2" placeholder="Enter Contact Number">
 
                         <label class="mb-2 mr-2 ml-2">Relation</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" name="ref_relation2" placeholder="Enter Relation">
+                        <input type="text" required maxlength="200" class="form-control mb-2 mr-sm-2" name="ref_relation2" placeholder="Enter Relation">
                     </div>
                     <br>
                 </fieldset>
@@ -558,19 +525,19 @@
                     <!-- Notice period -->
                     <label class="col-sm-2 col-form-label">Notice period</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Notice period" name="noticeperiod">
+                        <input type="text" required maxlength="200" class="form-control" placeholder="Enter Notice period" name="noticeperiod">
                     </div>
 
                     <!-- Expacted CTC -->
                     <label class="col-sm-2 col-form-label">Expected CTC</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Expected CTC" name="expectedCTC">
+                        <input type="text" required maxlength="200" class="form-control" placeholder="Enter Expected CTC" name="expectedCTC">
                     </div>
 
                     <!-- Current CTC -->
                     <label class="col-sm-2 col-form-label">Current CTC</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Enter Current CTC" name="currentCTC">
+                        <input type="text" required maxlength="200" class="form-control" placeholder="Enter Current CTC" name="currentCTC">
                     </div>
                     <br>
 
@@ -587,114 +554,110 @@
                         </div>
                     </div>
                     <!-- Submit -->
-                    <div class="form-group row mb-2 mr-2 ml-2">
-                        <!-- <label class="col-sm-10 col-form-label"></label> -->
+                    <!-- <div class="form-group row mb-2 mr-2 ml-2">
+
                         <div class="col-sm offset-9">
                             <input class="btn btn-dark" type="submit" value="Submit">
                         </div>
-                    </div>
+                    </div> -->
 
                 </fieldset>
             </div>
 
             <div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button" class="btn btn-dark" id="prevBtn" onclick="nextPrev(-1)" style="box-shadow: none;">Previous</button>
+                    <button type="button" class="btn btn-dark" id="nextBtn" onclick="nextPrev(1)" style="box-shadow: none;">Next</button>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:40px;">
+            <div style="text-align:center;">
+                <span class="step "></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
-
             </div>
         </form>
     </div>
     <script>
-        var currentTab = 0; // Current tab is set to be the first tab (0)
-        showTab(currentTab); // Display the current tab
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
 
-        function showTab(n) {
-            // This function will display the specified tab of the form...
-            var x = document.getElementsByClassName("tab");
-            x[n].style.display = "block";
-            //... and fix the Previous/Next buttons:
-            if (n == 0) {
-                document.getElementById("prevBtn").style.display = "none";
-            } else {
-                document.getElementById("prevBtn").style.display = "inline";
-            }
-            if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
-            } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
-            }
-            //... and run a function that will display the correct step indicator:
-            fixStepIndicator(n)
-        }
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
 
-        function nextPrev(n) {
-            // This function will figure out which tab to display
-            var x = document.getElementsByClassName("tab");
-            // Exit the function if any field in the current tab is invalid:
-            if (n == 1 && !validateForm()) return false;
-            // Hide the current tab:
-            x[currentTab].style.display = "none";
-            // Increase or decrease the current tab by 1:
-            currentTab = currentTab + n;
-            // if you have reached the end of the form...
-            if (currentTab >= x.length) {
-                // ... the form gets submitted:
-                document.getElementById("regForm").submit();
-                return false;
-            }
-            // Otherwise, display the correct tab:
-            showTab(currentTab);
-        }
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+   // if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
 
-        function validateForm() {
-            // This function deals with validation of the form fields
-            var x, y, i, valid = true;
-            x = document.getElementsByClassName("tab");
-            y = x[currentTab].getElementsByTagName("input");
-            // A loop that checks every input field in the current tab:
-            for (i = 0; i < y.length; i++) {
-                // If a field is empty...
-                if (y[i].value == "") {
-                    // add an "invalid" class to the field:
-                    y[i].className += " invalid";
-                    // and set the current valid status to false
-                    valid = false;
-                }
-            }
-            // If the valid status is true, mark the step as finished and valid:
-            if (valid) {
-                document.getElementsByClassName("step")[currentTab].className += " finish";
-            }
-            return valid; // return the valid status
-        }
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false:
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
 
-        function fixStepIndicator(n) {
-            // This function removes the "active" class of all steps...
-            var i, x = document.getElementsByClassName("step");
-            for (i = 0; i < x.length; i++) {
-                x[i].className = x[i].className.replace(" active", "");
-            }
-            //... and adds the "active" class on the current step:
-            x[n].className += " active";
-        }
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
-    <script>
-        $('$stepwizard').smartWizard();
-    </script> -->
 
 </body>
 
