@@ -22,9 +22,14 @@ from jobform.models import JobApplication
 
 
 def oldForm(request):
+    form = JobApplication()
     if request.method == "POST":
-        print('got an form')
+        form = JobApplication(request.POST)
+        print(form)
+        # if form.is_valid():
+        # print(form.cleaned_data)
         # basic details
+        print('Received a form submission')
         fname = request.POST["fname"]
         lname = request.POST["lname"]
         designation = request.POST["designation"]
@@ -144,7 +149,6 @@ def oldForm(request):
 
         # department
         Department = request.POST["Department"]
-
         ins = JobApplication(
             fname=fname,
             lname=lname,
@@ -228,6 +232,8 @@ def oldForm(request):
         ins.save()
         print(id, fname, ' ', lname)
         return redirect("/showApplicants")
+        # else:
+        #     print(form.errors)
     return render(request, "old_mainForm.html")
 
 
