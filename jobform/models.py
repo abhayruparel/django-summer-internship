@@ -128,12 +128,3 @@ class JobApplication(models.Model):
 
     class Meta:
         db_table = "Applications_master"
-
-
-class language(models.Model):
-    jobapplicationDetails = models.ForeignKey(JobApplication, on_delete=models.CASCADE)
-    language_choice = [('hindi', 'Hindi'), ('HindiSpeak', 'speak'), ]
-    data = models.JSONField()
-
-    class Meta:
-        db_table = "languages"

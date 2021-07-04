@@ -3,7 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    # path('', views.jobForm),
     path('jobApplication/', views.oldForm),
     path('showApplicants/', views.showApplications),
     path('editApplication/<int:id>', views.editApplication),
